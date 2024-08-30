@@ -40,6 +40,8 @@ public class TestBase {
         if (browserName.equals("chrome")) {
             //driver = WebDriverManager.chromedriver().create();
             ChromeOptions options = new ChromeOptions();
+//            options.setBrowserVersion("121");
+//            driver = new ChromeDriver(options);
             options.setBrowserVersion("121");
             options.addArguments("start-maximized"); // open Browser in maximized mode
             options.addArguments("--incognito");
@@ -75,7 +77,9 @@ public class TestBase {
             driver.manage().timeouts().pageLoadTimeout(TestUtil.Page_load_time, TimeUnit.SECONDS);
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TestUtil.implicit_wait));
 
-            driver.get(prop.getProperty("url"));
+          //  driver.get(prop.getProperty("url"));
+            driver.get(System.getProperty("url"));
+
         }
 
     }
